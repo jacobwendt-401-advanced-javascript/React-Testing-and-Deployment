@@ -26,4 +26,25 @@ it('should increment correctly when clicked', () => {
 
   expect(counter.state('count')).toEqual(5)
   });
+
+it('should decrement correctly when clicked', () => {
+  const counter = mount(<Counter />);
+  let button = counter.find('.down');
+
+  button.simulate('click');
+
+  expect(counter.state('count')).toEqual(-1)
+  
+  button.simulate('click');
+  button.simulate('click');
+  button.simulate('click');
+  button.simulate('click');
+
+  expect(counter.state('count')).toEqual(-5)
+  });
+
+
+
+
+
 });
